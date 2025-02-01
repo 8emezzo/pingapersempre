@@ -1,5 +1,4 @@
 import os
-import random
 
 
 
@@ -42,8 +41,6 @@ ORE_DA_ANALIZZARE_NEL_CSV = 10
 
 SECONDI_ANALISI_RUNTIME = 600 # 10 minuti circa
 
-#SECONDI_ANALISI_RUNTIME = 3600 * 24 # 24 ore circa
-
 
 
 
@@ -59,12 +56,6 @@ SECONDI_PAUSA_TRA_CICLI = 3
 
 
 
-# ----------------------------------------------------------------------------------------------------- #
-def get_secondi_pausa_tra_cicli():
-    return random.uniform(2.5, 7.5)
-
-def get_secondi_pausa_tra_ping():
-    return random.uniform(1.5, 2.5)
 
 
 

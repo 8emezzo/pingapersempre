@@ -3,7 +3,7 @@
 ## Descrizione
 Monitora nel tempo i ping verso un elenco di IP
 ```
-Salva l'esito dei ping in un file CSV e ciclicamente produce delle statistiche in un file HTML.
+Salva l'esito dei ping in un file CSV e ciclicamente produce delle statistiche in un file HTML
 ```
 
 ## Requisiti
@@ -47,7 +47,7 @@ pingapersempre/
 
 ## Contatti
 ```
-Per domande o suggerimenti, contattami a simoneventurin [chiocciola] gmail.com
+Per domande o suggerimenti, ma soprattutto schei, contattami a simoneventurin [chiocciola] gmail.com
 ```
 
 ## Licenza

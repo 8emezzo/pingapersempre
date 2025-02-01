@@ -28,7 +28,7 @@ lock = threading.Lock()
 
 
 
-def genera_statistiche(open_browser=False, secondi_pausa_iniziale=SECONDI_AGGIORNAMENTO_HTML):
+def genera_statistiche(open_browser=False, secondi_pausa_iniziale=SECONDI_AGGIORNAMENTO_FILE_HTML_STATISTICHE):
 
     # Pausa iniziale
     time.sleep(secondi_pausa_iniziale)
@@ -37,8 +37,8 @@ def genera_statistiche(open_browser=False, secondi_pausa_iniziale=SECONDI_AGGIOR
     df = pd.read_csv(FILE_CSV, parse_dates=["Timestamp"], index_col="Timestamp")
 
     # taglia il dataframe nelle ultime ore
-    if ORE_DA_ANALIZZARE_NEL_CSV > 0:
-        df = df[df.index > df.index.max() - pd.Timedelta(hours=ORE_DA_ANALIZZARE_NEL_CSV)]
+    if ORE_DA_ANALIZZARE_NEL_CSV_PER_LE_STATISTICHE > 0:
+        df = df[df.index > df.index.max() - pd.Timedelta(hours=ORE_DA_ANALIZZARE_NEL_CSV_PER_LE_STATISTICHE)]
 
     # aggiungo colonne utlili per le analisi
     df["Hour"] = df.index.hour
@@ -292,7 +292,7 @@ def genera_statistiche(open_browser=False, secondi_pausa_iniziale=SECONDI_AGGIOR
         f.write("<style>table {border-collapse: collapse;} th, td {border: 1px solid black; padding: 5px;}</style>")
 
         f.write("<html><body>")
-        f.write(f"<h1>Statistiche dei ping eseguiti nelle ultime {ORE_DA_ANALIZZARE_NEL_CSV} ore, salvate nel file CSV, dal {min_time_df} fino al {max_time_df}</h1>")
+        f.write(f"<h1>Statistiche dei ping eseguiti nelle ultime {ORE_DA_ANALIZZARE_NEL_CSV_PER_LE_STATISTICHE} ore, salvate nel file CSV, dal {min_time_df} fino al {max_time_df}</h1>")
         f.write("<table>")
         for key, value in report_statistiche_generali.items():
             f.write(f"<tr><td>{key}</td><td>{value}</td></tr>")
@@ -427,7 +427,7 @@ if __name__ == "__main__":
     ping_thread.start()
 
 
-    if SECONDI_AGGIORNAMENTO_HTML > 0 :
+    if SECONDI_AGGIORNAMENTO_FILE_HTML_STATISTICHE > 0 :
         # Avvia il thread per la creazione delle statistiche
         stats_thread = threading.Thread(target=genera_statistiche, daemon=True)
         stats_thread.start()

@@ -14,11 +14,11 @@ from collections import deque
 import pandas as pd
 
 
-### CSV_FILE = "pingapersempre_BLCAAFBL00.csv"
+
 
 # Creazione intestazione CSV se il file non esiste
-if not os.path.exists(CSV_FILE):
-    with open(CSV_FILE, mode='w', newline='') as file:
+if not os.path.exists(FILE_CSV):
+    with open(FILE_CSV, mode='w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(["Esito",  "Durata", "Destinazione", "IP", "Zona", "TTL", "Timestamp"])
 
@@ -31,10 +31,10 @@ def esegui_ping_infiniti():
     # Esegue il ping per ogni IP e registra i risultati in un CSV
 
     while True:
-        with open(CSV_FILE, mode='a', newline='') as file:
+        with open(FILE_CSV, mode='a', newline='') as file:
             writer = csv.writer(file)
             
-            for entry in elenco_ip_da_monitorare:
+            for entry in ELENCO_IP_DA_MONITORARE:
                 timestamp    = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 ip           = entry['IP']
                 destinazione = entry["Destinazione"]
@@ -64,7 +64,7 @@ def output_runtime():
         os.system('cls')
 
         # Legge solo le ultime MAX_LINES
-        with open(CSV_FILE, "r", encoding="utf-8") as f:
+        with open(FILE_CSV, "r", encoding="utf-8") as f:
             header = f.readline()  # Legge la prima riga (intestazione)
             if MAX_LINES == 0:
                 last_lines = f.readlines()

@@ -6,7 +6,7 @@ import os
 # Ineserisci i dati dei ping che vuoi monitorare:
 # Destinazione e Zona li puoi mettere a piacere, servono solo per la visualizzazione.
 
-elenco_ip_da_monitorare = [
+ELENCO_IP_DA_MONITORARE = [
      {"Destinazione": "Google DNS"      , "Zona": "US", "IP": "8.8.8.8"     }
     ,{"Destinazione": "Farm DNS"        , "Zona": "MI", "IP": "10.15.4.3"   }
     ,{"Destinazione": "Sito INPS"       , "Zona": "RM", "IP": "151.101.3.10"}
@@ -51,10 +51,10 @@ ORE_DA_ANALIZZARE_NEL_CSV = 10
 # ----------------------------------------------------------------------------------------------------- #
 # Attenzione -> devi mettere >0 almeno una di queste due pause qua sotto, altrimenti va tutto a puttane
 
-# Secondi di pausa tra un ping e l'altro dell'elenco_ip_da_monitorare.
+# Secondi di pausa tra un ping e l'altro dell'ELENCO_IP_DA_MONITORARE.
 SECONDI_PAUSA_TRA_PING  = 1
 
-# Secondi di pausa tra un ciclo di ping dell'elenco_ip_da_monitorare.
+# Secondi di pausa tra un ciclo di ping dell'ELENCO_IP_DA_MONITORARE.
 SECONDI_PAUSA_TRA_CICLI = 3
 
 
@@ -76,19 +76,20 @@ SECONDI_PING_TIMEOUT = 2
 # Cambia i parametri di seguito solo se sai cosa stai facendo
 # ----------------------------------------------------------------------------------------------------- #
 
-PC_NAME = os.environ['COMPUTERNAME']
+#PC_NAME = os.environ['COMPUTERNAME']
+#CSV_FILE = f"pingapersempre_{PC_NAME}.csv"
 
 # Nome del file CSV
-CSV_FILE = f"pingapersempre_{PC_NAME}.csv"
-#CSV_FILE = f"pingapersempre.csv"
+FILE_CSV = f"pingapersempre.csv"
 
 # crea la cartella statistiche se non esiste
 if not os.path.exists("statistiche"):
     os.makedirs("statistiche")
+
 PATH_STATISTICHE = "statistiche"
-HTML_FILE_STATISTICHE = f"{PATH_STATISTICHE}\\pingapersempre.html"
+FILE_HTML_STATISTICHE = f"{PATH_STATISTICHE}\\pingapersempre.html"
 
 # Righe che carica dal file CSV per il runtime
-MAX_LINES = int(SECONDI_ANALISI_RUNTIME / (SECONDI_PAUSA_TRA_PING + SECONDI_PAUSA_TRA_CICLI/len(elenco_ip_da_monitorare)))
+MAX_LINES = int(SECONDI_ANALISI_RUNTIME / (SECONDI_PAUSA_TRA_PING + SECONDI_PAUSA_TRA_CICLI/len(ELENCO_IP_DA_MONITORARE)))
 
 

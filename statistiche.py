@@ -7,12 +7,10 @@ import seaborn as sns
 import pandas as pd
 
 
-### CSV_FILE = "pingapersempre_BLCAAFBL00.csv"
-
 
 
 # Carica il CSV in un DataFrame e imposta Timestamp come indice
-df = pd.read_csv(CSV_FILE, parse_dates=["Timestamp"], index_col="Timestamp")
+df = pd.read_csv(FILE_CSV, parse_dates=["Timestamp"], index_col="Timestamp")
 
 # taglia il dataframe nelle ultime ore
 if ORE_DA_ANALIZZARE_NEL_CSV > 0:
@@ -27,6 +25,9 @@ df['Zona_Destinazione'] = df['Zona'] + " - " + df['Destinazione']
 # df dei soli ping falliti
 df_ping_falliti = df[df["Esito"] == 0]
 
+# data minima e massima del df
+min_time_df = df.index.min()
+max_time_df = df.index.max()
 
 
 
@@ -40,13 +41,12 @@ n_ping_ok = int(df["Esito"].sum())
 n_ping_ko = n_ping - n_ping_ok
 
 report_statistiche_generali  = {
-    "Numero totale di ping    ": int(n_ping),
-    "Numero di ping riusciti  ": int(n_ping_ok),
-    "Numero di ping falliti   ": int(n_ping_ko),
-    "Percentuale di successo  ": f"{round((n_ping_ok / n_ping) * 100,2)} %",
-    "Percentuale di fallimento": f"{round(((n_ping - n_ping_ok) / n_ping) * 100,2)} %",
-    "Durata media             ": f"{int(df["Durata"].mean())} ms",
-    "Deviazione standard      ": f"{int(df["Durata"].std())} ms",
+    "Percentuale di fallimento ": f"{round(((n_ping_ko) / n_ping) * 100,2)} %",
+    "Numero ping totale        ": int(n_ping),
+    "Numero ping falliti       ": int(n_ping_ko),
+    "Numero ping riusciti      ": int(n_ping_ok),
+    "Durata media ping         ": f"{int(df["Durata"].mean())} ms",
+    "Dev. standard durata ping ": f"{int(df["Durata"].std())} ms",
 }
 
 
@@ -240,9 +240,9 @@ plt.savefig(f"{PATH_STATISTICHE}\\evoluzione_durata_ping_nel_tempo.png")
 
 
 
-# ------------------------------------------------------- #
+# ----------------------------------------------------------- #
 # Evoluzione della durata pingnel tempo per ogni destinazione #
-# ------------------------------------------------------- #
+# ----------------------------------------------------------- #
 
 
 # grafico per ogni destinazione
@@ -318,24 +318,24 @@ plt.savefig(f"{PATH_STATISTICHE}\\distribuzione_tempi_di_ping.png")
 
 
 
-with open(HTML_FILE_STATISTICHE, "w", encoding="utf-8") as f:
+with open(FILE_HTML_STATISTICHE, "w", encoding="utf-8") as f:
     # anche un minimo di css
     f.write("<style>table {border-collapse: collapse;} th, td {border: 1px solid black; padding: 5px;}</style>")
 
     f.write("<html><body>")
-    f.write("<h1>Statistiche generali</h1>")
+    f.write(f"<h1>Statistiche dei ping eseguiti nelle ultime {ORE_DA_ANALIZZARE_NEL_CSV} ore, salvate nel file CSV, dal {min_time_df} fino al {max_time_df}</h1>")
     f.write("<table>")
     for key, value in report_statistiche_generali.items():
         f.write(f"<tr><td>{key}</td><td>{value}</td></tr>")
     f.write("</table>")
 
 
-    f.write("<h1>Statistiche per destinazione</h1>")
-    f.write(stats_per_destinazione.to_html())
-
-
     f.write("<h1>Mappa di calore dei ping persi</h1>")
     f.write("<img src='mappa_ping_persi.png'>")
+
+
+    f.write("<h1>Statistiche per destinazione</h1>")
+    f.write(stats_per_destinazione.to_html())
 
 
     f.write("<h1>Distribuzione durata ping per zona</h1>")
@@ -361,7 +361,7 @@ with open(HTML_FILE_STATISTICHE, "w", encoding="utf-8") as f:
     f.write("<img src='distribuzione_tempi_di_ping.png'>")
 
 
-    f.write("<h1>Statistiche per data/or e destinazione</h1>")
+    f.write("<h1>Statistiche per data/ora e destinazione</h1>")
     f.write(stats_per_data_dest.to_html())
 
     #fine html
@@ -370,9 +370,5 @@ with open(HTML_FILE_STATISTICHE, "w", encoding="utf-8") as f:
 
 
 # apre il file HTML con il browser predefinito
-webbrowser.open(HTML_FILE_STATISTICHE)
-
-
-
-
+webbrowser.open(FILE_HTML_STATISTICHE)
 

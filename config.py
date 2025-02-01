@@ -1,7 +1,6 @@
 
-# ----------------------------------------------------------------------------------------------------- #
-# Ineserisci i dati dei ping che vuoi monitorare:
-# Destinazione e Zona li puoi mettere a piacere, servono solo per la visualizzazione.
+# Ineserisci gli indirizzi IP che vuoi monitorare.
+# Destinazione e Zona li puoi mettere a piacere perché servono solo per la visualizzazione.
 
 ELENCO_IP_DA_MONITORARE = [
      {"Destinazione": "Google DNS"      , "Zona": "US", "IP": "8.8.8.8"     }
@@ -18,18 +17,11 @@ ELENCO_IP_DA_MONITORARE = [
 ]
 
 
-
-
-
 # -------------------------------------------------------------------------------------------------------------------- #
 # Inserisci i secondi ogni quanto vuoi aggiornare il file statistiche.html
 # E' consigliato non mettere meno di 60 secondi, dato che la produzione del file HTML potrebbe appesantire la macchina
 # Se metti 0 non produce mai il file. Eventualmente lo puoi produrre a parte con il comando statitiche.bat
 SECONDI_AGGIORNAMENTO_FILE_HTML_STATISTICHE = 1800 # 30 minuti
-
-
-
-
 
 
 # -------------------------------------------------------------------------------------------------------------------- #
@@ -38,17 +30,10 @@ SECONDI_AGGIORNAMENTO_FILE_HTML_STATISTICHE = 1800 # 30 minuti
 ORE_DA_ANALIZZARE_NEL_CSV_PER_LE_STATISTICHE = 10
 
 
-
-
-
-
 # -------------------------------------------------------------------------------------------------------------------- #
-# Inserisci i secondi di storico del file CSV che vuoi analizzare durante il runtime di pingapersempre.bat
+# Inserisci i secondi di storico del file CSV che vuoi analizzare durante l'uotput di runtime di pingapersempre.bat
 # Se metti 0 considera tutto il file CSV.
 SECONDI_DA_ANALIZZARE_NEL_CSV_PER_IL_RUNTIME = 600 # 10 minuti
-
-
-
 
 
 # -------------------------------------------------------------------------------------------------------------------- #
@@ -62,23 +47,14 @@ SECONDI_PAUSA_TRA_PING  = 1
 SECONDI_PAUSA_TRA_CICLI = 3
 
 
-
-
-
-
 # -------------------------------------------------------------------------------------------------------------------- #
 # Secondi di timeout del singolo ping. Accetta anche numeri con virgola (es. 1.5)
 # Consigliato mettere almeno 1 secondo
 SECONDI_PING_TIMEOUT = 2
 
 
-
-
-
-
-
 # -------------------------------------------------------------------------------------------------------------------- #
 # Nomi file/path
 FILE_CSV              = "pingapersempre.csv"
 FILE_HTML_STATISTICHE = "statistiche.html"
-PATH_STATISTICHE      = "statitiche"
+PATH_STATISTICHE      = "statistiche"

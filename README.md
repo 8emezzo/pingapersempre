@@ -17,13 +17,15 @@ statistiche.bat    -> si può lanciare quando si vuole per analizzare l'intero c
 
 ## Struttura del progetto
 
-pingapersempre/\n
+```
+pingapersempre/
 │-- config.py           # File per configurazione (unico file dove intervenire per inserire i propri parametri di configurazione)
 │-- pingapersempre.csv  # file CSV con l'archivio dell'esito dei ping
 │-- requirements.txt    # Dipendenze del progetto (librerie Python che vengono installate con install.bat)
 │-- main.py             # File py main principale
 │-- statistiche.py      # File py statistiche
 │-- README.txt          # Questo file
+```
 
 ## Contatti
 Per domande o suggerimenti, contattami a [simoneventurin@gmail.com]

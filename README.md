@@ -19,9 +19,9 @@ Assicurati di avere installato Python nella macchina.
 
 ```
 pingapersempre/
-│-- config.py           # File configurazione: unico file dove inserire i propri parametri di configurazione
+│-- config.py           # Unico file di configurazione dove inserire i propri parametri
 │-- pingapersempre.csv  # file CSV con l'archivio dell'esito dei ping
-│-- requirements.txt    # Dipendenze del progetto (librerie Python che vengono installate con install.bat)
+│-- requirements.txt    # Dipendenze del progetto (librerie Python installate con install.bat)
 │-- main.py             # File py main principale
 │-- statistiche.py      # File py statistiche
 │-- README.txt          # Questo file

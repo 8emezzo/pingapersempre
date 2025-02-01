@@ -20,7 +20,7 @@ import pandas as pd
 if not os.path.exists(CSV_FILE):
     with open(CSV_FILE, mode='w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(["Esito",  "Durata", "Destinazione", "IP", "Territorio", "TTL", "Timestamp"])
+        writer.writerow(["Esito",  "Durata", "Destinazione", "IP", "Zona", "TTL", "Timestamp"])
 
 # Variabile globale per la sincronizzazione tra thread
 lock = threading.Lock()
@@ -38,7 +38,7 @@ def esegui_ping_infiniti():
                 timestamp    = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 ip           = entry['IP']
                 destinazione = entry["Destinazione"]
-                territorio   = entry["Territorio"]
+                zona         = entry["Zona"]
                 ping_output  = subprocess.run(["ping", "-n", "1", "-w", str(SECONDI_PING_TIMEOUT * 1000), ip ], capture_output=True, text=True)
                 esito        = int("TTL=" in ping_output.stdout)
 
@@ -49,7 +49,7 @@ def esegui_ping_infiniti():
                 ttl          = int(ttl_match.group(1)) if ttl_match else -1
 
                 with lock:
-                    writer.writerow([esito, durata, destinazione, ip, territorio, ttl, timestamp])
+                    writer.writerow([esito, durata, destinazione, ip, zona, ttl, timestamp])
                 
                 time.sleep(SECONDI_PAUSA_TRA_PING)
 
@@ -80,7 +80,7 @@ def output_runtime():
         diff_time = (max_time - min_time).total_seconds() / 60
 
         # Raggruppa per Destinazione e IP, calcola media Durata e TTL, e contiamo gli Esito = 0
-        agg_df = df.groupby(["Destinazione", "IP"]).agg(
+        agg_df = df.groupby(["Zona", "Destinazione", "IP"]).agg(
             Durata_media=("Durata", "mean"),
             TTL_medio=("TTL", "mean"),
             Ping_totali=("Esito", "count"),
@@ -88,6 +88,10 @@ def output_runtime():
         ).round().astype(int).reset_index()
 
         agg_df["% fallimenti"] = (agg_df["Ping_falliti"] / agg_df["Ping_totali"] * 100).round(2)
+
+        # Ordina per % fallimenti decrescente, Zona crescente, Destinazione crescente
+        agg_df = agg_df.sort_values(["% fallimenti", "Zona", "Destinazione"], ascending=[False, True, True])
+
 
 
         print("-----------------------------------------------------------------------------------------------")

@@ -4,20 +4,20 @@ import os
 
 # ----------------------------------------------------------------------------------------------------- #
 # Ineserisci i dati dei ping che vuoi monitorare:
-# Destinazione e Territorio li puoi mettere a piacere, servono solo per la visualizzazione.
+# Destinazione e Zona li puoi mettere a piacere, servono solo per la visualizzazione.
 
 elenco_ip_da_monitorare = [
-     {"Destinazione": "Google DNS"      , "Territorio": "US", "IP": "8.8.8.8"     }
-    ,{"Destinazione": "Farm DNS"        , "Territorio": "MI", "IP": "10.15.4.3"   }
-    ,{"Destinazione": "Sito INPS"       , "Territorio": "RM", "IP": "151.101.3.10"}
-    ,{"Destinazione": "Router Belluno"  , "Territorio": "BL", "IP": "10.112.255.1"}
-    ,{"Destinazione": "Router Feltre"   , "Territorio": "BL", "IP": "10.112.240.1"}
-    ,{"Destinazione": "Router Pieve"    , "Territorio": "BL", "IP": "10.112.230.1"}
-    ,{"Destinazione": "Router Agordo"   , "Territorio": "BL", "IP": "10.112.250.1"}
-    ,{"Destinazione": "Router Sedico"   , "Territorio": "BL", "IP": "10.112.200.1"}
-    ,{"Destinazione": "Router Puos"     , "Territorio": "BL", "IP": "10.112.210.1"}
-    ,{"Destinazione": "Router Cortina"  , "Territorio": "BL", "IP": "10.112.220.1"}
-    ,{"Destinazione": "Router S.Stefano", "Territorio": "BL", "IP": "10.112.190.1"}
+     {"Destinazione": "Google DNS"      , "Zona": "US", "IP": "8.8.8.8"     }
+    ,{"Destinazione": "Farm DNS"        , "Zona": "MI", "IP": "10.15.4.3"   }
+    ,{"Destinazione": "Sito INPS"       , "Zona": "RM", "IP": "151.101.3.10"}
+    ,{"Destinazione": "Router Belluno"  , "Zona": "BL", "IP": "10.112.255.1"}
+    ,{"Destinazione": "Router Feltre"   , "Zona": "BL", "IP": "10.112.240.1"}
+    ,{"Destinazione": "Router Pieve"    , "Zona": "BL", "IP": "10.112.230.1"}
+    ,{"Destinazione": "Router Agordo"   , "Zona": "BL", "IP": "10.112.250.1"}
+    ,{"Destinazione": "Router Sedico"   , "Zona": "BL", "IP": "10.112.200.1"}
+    ,{"Destinazione": "Router Puos"     , "Zona": "BL", "IP": "10.112.210.1"}
+    ,{"Destinazione": "Router Cortina"  , "Zona": "BL", "IP": "10.112.220.1"}
+    ,{"Destinazione": "Router S.Stefano", "Zona": "BL", "IP": "10.112.190.1"}
 ]
 
 

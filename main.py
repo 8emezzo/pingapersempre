@@ -19,12 +19,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 
-
-
-
 # Variabile globale per la sincronizzazione tra thread
 lock = threading.Lock()
-
 
 
 
@@ -57,7 +53,6 @@ def genera_statistiche(open_browser=False, secondi_pausa_iniziale=SECONDI_AGGIOR
     min_time_df = df.index.min()
     max_time_df = df.index.max()
 
-
     # ------------------------- #
     # Statistiche generali      #
     # ------------------------- #
@@ -75,10 +70,8 @@ def genera_statistiche(open_browser=False, secondi_pausa_iniziale=SECONDI_AGGIOR
         "Dev. standard durata ping ": f"{int(df["Durata"].std())} ms",
     }
 
-
     for key, value in report_statistiche_generali.items():
         print(f"{key}: {value}")
-
 
     # ------------------------------- #
     # Statistiche per destinazione    #
@@ -102,17 +95,13 @@ def genera_statistiche(open_browser=False, secondi_pausa_iniziale=SECONDI_AGGIOR
     stats_per_destinazione["% fallimento"] = stats_per_destinazione["% fallimento"].round(2)
     stats_per_destinazione["Durata_media"] = stats_per_destinazione["Durata_media"].astype(int)
     stats_per_destinazione["TTL_medio"] = stats_per_destinazione["TTL_medio"].astype(int)
-
     stats_per_destinazione.drop(columns=[ "Ping_riusciti"], inplace=True)
-
     stats_per_destinazione = stats_per_destinazione[["% fallimento", "Ping_totali", "Ping_falliti" ] + 
             [col for col in stats_per_destinazione.columns if col not in ["Ping_totali", "Ping_falliti", "% fallimento"]]]
-
     stats_per_destinazione = stats_per_destinazione.sort_values(by="% fallimento", ascending=False)
 
     print("\nStatistiche per destinazione:")
     print(stats_per_destinazione.to_string())
-
 
     # ----------------------------------------- #
     # Statistiche per giorno/ora e destinazione #
@@ -133,17 +122,13 @@ def genera_statistiche(open_browser=False, secondi_pausa_iniziale=SECONDI_AGGIOR
     stats_per_data_dest["% fallimento"] = 100 -(stats_per_data_dest["Ping_riusciti"] / stats_per_data_dest["Ping_totali"] * 100).round(2)
     stats_per_data_dest["% fallimento"] = stats_per_data_dest["% fallimento"].round(2)
     stats_per_data_dest["Durata_media"] = stats_per_data_dest["Durata_media"].round(1)
-
     stats_per_data_dest.drop(columns=[ "Ping_riusciti"], inplace=True)
-
     stats_per_data_dest = stats_per_data_dest.sort_values(by=["Day_Hour",  "% fallimento", "Zona_Destinazione"], ascending=[True, False, True])
-
     stats_per_data_dest = stats_per_data_dest[["% fallimento", "Ping_totali", "Ping_falliti" ] + 
             [col for col in stats_per_data_dest.columns if col not in ["Ping_totali", "Ping_falliti", "% fallimento"]]]
 
     print("\nStatistiche per data e destinazione:")
     print(stats_per_data_dest.to_string()) 
-
 
     # ------------------------------- #
     # Ping persi (mappa di calore)    #
@@ -154,7 +139,6 @@ def genera_statistiche(open_browser=False, secondi_pausa_iniziale=SECONDI_AGGIOR
 
     if df_ping_falliti_raggruppati.empty:
         print("Non stampo la mappa di calore dei ping persi perché non c'è nessun ping perso")
-
         # se non ci sono ping persi, stampo un png vuoto
         plt.figure(figsize=(12, 6))
         plt.axis('off')
@@ -189,9 +173,8 @@ def genera_statistiche(open_browser=False, secondi_pausa_iniziale=SECONDI_AGGIOR
         #plt.show()
         plt.savefig(f"{PATH_STATISTICHE}\\mappa_ping_persi.png")
 
-
-    # ------------------------------------ #
-    # Distribuzione durata ping per zona   #
+    # ------------------------------------- #
+    # Distribuzione durata ping per zona    #
     # ------------------------------------- #
     df_distribuzione = df.sort_values("Zona_Destinazione")
 
@@ -204,7 +187,6 @@ def genera_statistiche(open_browser=False, secondi_pausa_iniziale=SECONDI_AGGIOR
     plt.tight_layout()
     #plt.show()
     plt.savefig(f"{PATH_STATISTICHE}\\distribuzione_durata_ping_per_zona.png")
-
 
     # --------------------------------------- #
     # Evoluzione della durata ping nel tempo  #
@@ -229,7 +211,6 @@ def genera_statistiche(open_browser=False, secondi_pausa_iniziale=SECONDI_AGGIOR
     #plt.show()
     plt.savefig(f"{PATH_STATISTICHE}\\evoluzione_durata_ping_nel_tempo.png")
 
-
     # ----------------------------------------------------------- #
     # Evoluzione della durata pingnel tempo per ogni destinazione #
     # ----------------------------------------------------------- #
@@ -249,7 +230,6 @@ def genera_statistiche(open_browser=False, secondi_pausa_iniziale=SECONDI_AGGIOR
         plt.tight_layout()
         #plt.show()
         plt.savefig(f"{PATH_STATISTICHE}\\evoluzione_durata_ping_nel_tempo_per_destinazione_{destination}.png")
-
 
     # --------------------------------------------------------------------------- #
     # Evoluzione della durata ping nel tempo per ogni destinazione (media 10 min) #
@@ -277,7 +257,6 @@ def genera_statistiche(open_browser=False, secondi_pausa_iniziale=SECONDI_AGGIOR
     plt.tight_layout()
     #plt.show()
     plt.savefig(f"{PATH_STATISTICHE}\\evoluzione_durata_ping_nel_tempo_per_destinazione_media_10_min.png")
-
 
     # ------------------------------- #
     # Distribuzione dei tempi di ping #
@@ -362,18 +341,14 @@ def esegui_ping_infiniti():
                 zona         = entry["Zona"]
                 ping_output  = subprocess.run(["ping", "-n", "1", "-w", str(SECONDI_PING_TIMEOUT * 1000), ip ], capture_output=True, text=True)
                 esito        = int("TTL=" in ping_output.stdout)
-
                 # Estrae durata e TTL
                 durata_match = re.search(r'(?:durata|time)[=<]?(\d+)ms', ping_output.stdout)
                 ttl_match    = re.search(r'TTL=(\d+)', ping_output.stdout)
                 durata       = int(durata_match.group(1)) if durata_match else SECONDI_PING_TIMEOUT * 1000
                 ttl          = int(ttl_match.group(1)) if ttl_match else -1
-
                 with lock:
                     writer.writerow([esito, durata, destinazione, ip, zona, ttl, timestamp])
-                
                 time.sleep(SECONDI_PAUSA_TRA_PING)
-
         time.sleep(SECONDI_PAUSA_TRA_CICLI)
 
 
@@ -414,7 +389,7 @@ def output_runtime():
         agg_df = agg_df.sort_values(["% fallimenti", "Zona", "Destinazione"], ascending=[False, True, True])
 
         print("------------------------------------------------------------------------------------------------------")
-        print(f"Statistiche ultimi {diff_time:.1f} minuti aggiornate al {max_time}")
+        print(f"Statistiche ultimi {diff_time:.1f} minuti, aggiornate al {max_time}")
         print("------------------------------------------------------------------------------------------------------")
         print(agg_df.to_string(index=False))
         print("------------------------------------------------------------------------------------------------------")
@@ -426,10 +401,9 @@ if __name__ == "__main__":
 
     file_CSV()  # Crea il file CSV se non esiste
 
-    # Avvia i thread
+    # Avvia il thread per i ping
     ping_thread = threading.Thread(target=esegui_ping_infiniti, daemon=True)
     ping_thread.start()
-
 
     if SECONDI_AGGIORNAMENTO_FILE_HTML_STATISTICHE > 0 :
         # Avvia il thread per la creazione delle statistiche

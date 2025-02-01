@@ -25,7 +25,6 @@ ELENCO_IP_DA_MONITORARE = [
 # Inserisci i secondi ogni quanto vuoi aggiornare il file statistiche.html
 # E' consigliato non mettere meno di 60 secondi, dato che la produzione del file HTML potrebbe appesantire la macchina
 # Se metti 0 non produce mai il file. Eventualmente lo puoi produrre a parte con il comando statitiche.bat
-
 SECONDI_AGGIORNAMENTO_FILE_HTML_STATISTICHE = 1800 # 30 minuti
 
 
@@ -36,7 +35,6 @@ SECONDI_AGGIORNAMENTO_FILE_HTML_STATISTICHE = 1800 # 30 minuti
 # -------------------------------------------------------------------------------------------------------------------- #
 # Inserisci le ore di storico del file CSV che vuoi analizzare nel file statistiche.html
 # Se metti 0 considera tutto il file CSV.
-
 ORE_DA_ANALIZZARE_NEL_CSV_PER_LE_STATISTICHE = 10
 
 
@@ -47,7 +45,6 @@ ORE_DA_ANALIZZARE_NEL_CSV_PER_LE_STATISTICHE = 10
 # -------------------------------------------------------------------------------------------------------------------- #
 # Inserisci i secondi di storico del file CSV che vuoi analizzare durante il runtime di pingapersempre.bat
 # Se metti 0 considera tutto il file CSV.
-
 SECONDI_DA_ANALIZZARE_NEL_CSV_PER_IL_RUNTIME = 600 # 10 minuti
 
 

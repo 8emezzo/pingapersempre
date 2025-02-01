@@ -11,7 +11,7 @@ Assicurati di avere installato Python nella macchina.
 ```
 Funziona su Windows, lingua ITA o EN.
 Con poche modifiche si può adattare in modo che supporti qualsiasi sistema operativo e/o lingua.
-(sia chiaro, modifiche che non ho nessuna intenzione di fare :)
+(sia chiaro, modifiche che non ho nessuna intenzione di fare)
 ```
 
 ## Installazione

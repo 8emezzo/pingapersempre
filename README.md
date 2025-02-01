@@ -22,7 +22,7 @@ statistiche.bat    -> eseguire a piacimento per analizzare parte o tutto il file
 ```
 pingapersempre/
 │-- config.py          # Unico file di configurazione dove inserire i propri parametri
-│-- pingapersempre.csv # file CSV con l'archivio dell'esito dei ping
+│-- pingapersempre.csv # file CSV con l'archivio dell'esito dei ping (creato alla prima esecuzione)
 │-- requirements.txt   # Librerie Python installate con install.bat
 │-- main.py            # File py principale
 │-- statistiche.py     # File py statistiche

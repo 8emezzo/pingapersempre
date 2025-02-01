@@ -1,20 +1,20 @@
 # pingapersempre
 
 ## Descrizione
-Monitora nel tempo il ping su un elenco di IP.
+Monitora nel tempo il ping su un elenco di IP
 
 ## Requisiti
-Assicurati di avere installato Python nella macchina.
+Assicurati di avere installato Python nella macchina
 
 ## Installazione
 ```
-install.bat        -> Eseguire solo la prima volta. Installa le librerie Phython necessarie.
+install.bat        -> Eseguire solo la prima volta. Installa le librerie Phython necessarie
 ```
 
 ## Utilizzo
 ```
-pingapersempre.bat -> Quando è in esecuzione salva l'esito dei ping in un file CSV.
-statistiche.bat    -> Eseguire a piacimento per analizzare parte o tutto il file CSV.
+pingapersempre.bat -> Quando è in esecuzione salva l'esito dei ping in un file CSV
+statistiche.bat    -> Eseguire a piacimento per analizzare parte o tutto il file CSV
 ```
 
 ## Struttura del programma

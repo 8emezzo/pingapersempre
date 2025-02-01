@@ -8,13 +8,14 @@ Assicurati di avere installato Python nella macchina. Funziona su Windows (lingu
 
 ## Installazione
 ```
-install.bat -> da eseguire solo la prima volta per installare le librerie Phython necessarie.
+install.bat -> Da eseguire solo la prima volta per installare le librerie Phython necessarie.
 ```
 
 ## Utilizzo
 ```
-pingapersempre.bat -> quando è in esecuzione salva l'esito dei ping in un file CSV.
-statistiche.bat    -> eseguire a piacimento: produce un file HTML di statistiche sui dati contenuti nel file CSV. 
+pingapersempre.bat -> Quando è in esecuzione salva l'esito dei ping in un file CSV.
+statistiche.bat    -> Produce un file HTML di statistiche sui dati contenuti nel file CSV.
+                      Eseguire a piacimento.
 ```
 
 ## Struttura del programma

@@ -77,5 +77,12 @@ PC_NAME = os.environ['COMPUTERNAME']
 CSV_FILE = f"pingapersempre_{PC_NAME}.csv"
 #CSV_FILE = f"pingapersempre.csv"
 
+# crea la cartella statistiche se non esiste
+if not os.path.exists("statistiche"):
+    os.makedirs("statistiche")
+PATH_STATISTICHE = "statistiche"
+HTML_FILE_STATISTICHE = f"{PATH_STATISTICHE}\\pingapersempre.html"
+
+
 # Righe che carica dal file CSV per il runtime
 MAX_LINES = int(SECONDI_ANALISI_RUNTIME / (SECONDI_PAUSA_TRA_PING + SECONDI_PAUSA_TRA_CICLI/len(elenco_ip_da_monitorare)))

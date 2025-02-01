@@ -21,7 +21,8 @@ install.bat
 
 ## Configurazione
 ```
-Editare il file config.py ed inserire i propri dati
+Editare il file config.py ed inserire gli IP da monitorare.
+Eventualmente mofificare i parametri della configurazione di default.
 ```
 
 ## Utilizzo

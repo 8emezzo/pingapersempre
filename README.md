@@ -11,6 +11,7 @@ Assicurati di avere installato Python nella macchina.
 ```
 Funziona su Windows, lingua ITA o EN.
 Con poche modifiche si può adattare in modo che supporti qualsiasi sistema operativo e/o lingua.
+(sia chiaro, modifiche che non ho nessuna intenzione di fare :)
 ```
 
 ## Installazione
@@ -33,21 +34,25 @@ pingapersempre.bat
 ```
 pingapersempre/
 │-- config.py          # file di configurazione
-│-- main.py            # File py principale
-│-- statistiche.py     # File py statistiche
+│-- main.py            # file py principale
+│-- statistiche.py     # file py statistiche
 │-- pingapersempre.csv # file CSV con l'archivio dell'esito dei ping (creato alla prima esecuzione)
 │-- requirements.txt   # elenco librerie Python
 │-- install.bat        # installa le librerie Python contenute in requirements.txt
-│-- pingapersempre.bat # Lancia il programma
-│-- statistiche.bat    # Forza l'aggiornamento del file HTML delle statistiche
-│-- README.md          # Questo file
-│-- statistiche.html   # File HTML con le statistiche
+│-- pingapersempre.bat # lancia il programma
+│-- statistiche.bat    # forza l'aggiornamento del file HTML delle statistiche
+│-- statistiche.html   # file HTML con le statistiche
+│-- README.md          # questo file
 ```
 
 ## Contatti
+```
 Per domande o suggerimenti, contattami a simoneventurin@gmail.com
+```
 
 ## Licenza
+```
 Questo progetto è distribuito sotto la licenza MIAO LOL
 (Modello Indipendente di Autorizzazione Open - Licenza Operativa Libera)
+```
 

@@ -14,7 +14,7 @@ install.bat -> da eseguire solo la prima volta per installare le librerie Phytho
 ## Utilizzo
 ```
 pingapersempre.bat -> quando è in esecuzione salva l'esito dei ping in un file CSV.
-statistiche.bat    -> eseguire a piacimento per analizzare parte o tutto il file CSV. Produce in output un file HTML.
+statistiche.bat    -> eseguire a piacimento: produce un file HTML di statistiche sui dati contenuti nel file CSV. 
 ```
 
 ## Struttura del programma

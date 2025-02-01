@@ -25,8 +25,8 @@ ELENCO_IP_DA_MONITORARE = [
 
 
 
-# ----------------------------------------------------------------------------------------------------- #
-# Inserisci i secondi di storico del file CSV che vuoi analizzare in runtime.
+# -------------------------------------------------------------------------------------------------------- #
+# Inserisci i secondi di storico del file CSV che vuoi analizzare durante il runtime di pingapersempre.bat
 # Se metti 0 considera tutto il file CSV.
 
 SECONDI_ANALISI_RUNTIME = 600 # 10 minuti circa
@@ -35,8 +35,8 @@ SECONDI_ANALISI_RUNTIME = 600 # 10 minuti circa
 
 
 
-# ----------------------------------------------------------------------------------------------------- #
-# Inserisci il numero di ore nel passato che vuoi analizzare nel file CSV quando lanci le statistiche.
+# -------------------------------------------------------------------------------------------------------- #
+# Inserisci le ore di storico del file CSV che vuoi analizzare quando lanci statistiche.bat
 # Se metti 0 considera tutto il file CSV.
 
 ORE_DA_ANALIZZARE_NEL_CSV = 10
@@ -47,8 +47,7 @@ ORE_DA_ANALIZZARE_NEL_CSV = 10
 
 
 
-
-# ----------------------------------------------------------------------------------------------------- #
+# -------------------------------------------------------------------------------------------------------- #
 # Attenzione -> devi mettere >0 almeno una di queste due pause qua sotto, altrimenti va tutto a puttane
 
 # Secondi di pausa tra un ping e l'altro dell'ELENCO_IP_DA_MONITORARE.
@@ -62,8 +61,7 @@ SECONDI_PAUSA_TRA_CICLI = 3
 
 
 
-
-# ----------------------------------------------------------------------------------------------------- #
+# -------------------------------------------------------------------------------------------------------- #
 # Secondi di timeout del singolo ping.
 SECONDI_PING_TIMEOUT = 2
 
@@ -72,9 +70,9 @@ SECONDI_PING_TIMEOUT = 2
 
 
 
-# ----------------------------------------------------------------------------------------------------- #
+# -------------------------------------------------------------------------------------------------------- #
 # Cambia i parametri di seguito solo se sai cosa stai facendo
-# ----------------------------------------------------------------------------------------------------- #
+# -------------------------------------------------------------------------------------------------------- #
 
 #PC_NAME = os.environ['COMPUTERNAME']
 #CSV_FILE = f"pingapersempre_{PC_NAME}.csv"

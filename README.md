@@ -3,8 +3,7 @@
 ## Descrizione
 Monitora nel tempo il ping di un elenco di IP.
 ```
-Salva l'esito dei ping nel file pingapersempre.csv
-Ciclicamente aggiorna il file statistiche.html
+Salva l'esito dei ping nel file pingapersempre.csv e ciclicamente aggiorna il file statistiche.html
 ```
 
 ## Requisiti

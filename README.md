@@ -47,7 +47,7 @@ pingapersempre/
 
 ## Contatti
 ```
-Per domande o suggerimenti, contattami a simoneventurin@gmail.com
+Per domande o suggerimenti, contattami a [simoneventurin@gmail.com]
 ```
 
 ## Licenza

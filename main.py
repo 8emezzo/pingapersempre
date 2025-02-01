@@ -90,9 +90,11 @@ def output_runtime():
         agg_df["% fallimenti"] = (agg_df["Ping_falliti"] / agg_df["Ping_totali"] * 100).round(2)
 
 
-        print(f"Statistiche ultimi {diff_time:.1f} minuti, aggiornate al: {max_time}")
-       
+        print("-----------------------------------------------------------------------------------------------")
+        print(f"Statistiche ultimi {diff_time:.1f} minuti aggiornate al {max_time}")
+        print("-----------------------------------------------------------------------------------------------")
         print(agg_df.to_string(index=False))
+        print("-----------------------------------------------------------------------------------------------")
         time.sleep(5)
 
 

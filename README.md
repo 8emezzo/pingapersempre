@@ -4,11 +4,11 @@
 Monitora nel tempo il ping su un elenco di IP
 
 ## Requisiti
-Assicurati di avere installato Python nella macchina
+Assicurati di avere installato Python nella macchina. Funziona su Windows, ma con poche modifiche si può adattare ad altri sistemi operativi.
 
 ## Installazione
 ```
-install.bat        -> Eseguire solo la prima volta. Installa le librerie Phython necessarie
+install.bat -> Eseguire solo la prima volta per installare le librerie Phython necessarie
 ```
 
 ## Utilizzo

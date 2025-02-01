@@ -29,7 +29,7 @@ ELENCO_IP_DA_MONITORARE = [
 # Inserisci i secondi di storico del file CSV che vuoi analizzare durante il runtime di pingapersempre.bat
 # Se metti 0 considera tutto il file CSV.
 
-SECONDI_ANALISI_RUNTIME = 600 # 10 minuti circa
+SECONDI_ANALISI_RUNTIME = 600 # 10 minuti
 
 
 
@@ -40,6 +40,20 @@ SECONDI_ANALISI_RUNTIME = 600 # 10 minuti circa
 # Se metti 0 considera tutto il file CSV.
 
 ORE_DA_ANALIZZARE_NEL_CSV = 10
+
+
+
+
+
+
+
+
+# -------------------------------------------------------------------------------------------------------- #
+# Inserisci i secondi ogni quanto vuoi aggiornare le statistiche contenute nel file HTML
+# E' consigliato non mettere meno di 60 secondi
+
+SECONDI_AGGIORNAMENTO_HTML = 600 # 10 minuti
+
 
 
 
@@ -85,7 +99,7 @@ if not os.path.exists("statistiche"):
     os.makedirs("statistiche")
 
 PATH_STATISTICHE = "statistiche"
-FILE_HTML_STATISTICHE = f"{PATH_STATISTICHE}\\pingapersempre.html"
+FILE_HTML_STATISTICHE = f"{PATH_STATISTICHE}\\index.html"
 
 # Righe che carica dal file CSV per il runtime
 MAX_LINES = int(SECONDI_ANALISI_RUNTIME / (SECONDI_PAUSA_TRA_PING + SECONDI_PAUSA_TRA_CICLI/len(ELENCO_IP_DA_MONITORARE)))

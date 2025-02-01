@@ -26,17 +26,19 @@ ELENCO_IP_DA_MONITORARE = [
 
 
 # -------------------------------------------------------------------------------------------------------- #
-# Inserisci i secondi di storico del file CSV che vuoi analizzare durante il runtime di pingapersempre.bat
-# Se metti 0 considera tutto il file CSV.
+# Inserisci i secondi ogni quanto vuoi aggiornare il file statistiche.html
+# E' consigliato non mettere meno di 60 secondi
+# Se metti 0 non produce mai il file
 
-SECONDI_ANALISI_RUNTIME = 600 # 10 minuti
+SECONDI_AGGIORNAMENTO_HTML = 600 # 10 minuti
+
 
 
 
 
 
 # -------------------------------------------------------------------------------------------------------- #
-# Inserisci le ore di storico del file CSV che vuoi analizzare quando lanci statistiche.bat
+# Inserisci le ore di storico del file CSV che vuoi analizzare nel file statistiche.html
 # Se metti 0 considera tutto il file CSV.
 
 ORE_DA_ANALIZZARE_NEL_CSV = 10
@@ -46,15 +48,11 @@ ORE_DA_ANALIZZARE_NEL_CSV = 10
 
 
 
-
-
 # -------------------------------------------------------------------------------------------------------- #
-# Inserisci i secondi ogni quanto vuoi aggiornare le statistiche contenute nel file HTML
-# E' consigliato non mettere meno di 60 secondi
+# Inserisci i secondi di storico del file CSV che vuoi analizzare durante il runtime di pingapersempre.bat
+# Se metti 0 considera tutto il file CSV.
 
-SECONDI_AGGIORNAMENTO_HTML = 600 # 10 minuti
-
-
+SECONDI_ANALISI_RUNTIME = 600 # 10 minuti
 
 
 
@@ -62,7 +60,8 @@ SECONDI_AGGIORNAMENTO_HTML = 600 # 10 minuti
 
 
 # -------------------------------------------------------------------------------------------------------- #
-# Attenzione -> devi mettere >0 almeno una di queste due pause qua sotto, altrimenti va tutto a puttane
+# Non mettere entrambi i due seguenti parametri a 0, altrimenti mi sa che va tutto a puttane
+# Puoi mettere anche numeri in virgola mobile (es. 0.5)
 
 # Secondi di pausa tra un ping e l'altro dell'ELENCO_IP_DA_MONITORARE.
 SECONDI_PAUSA_TRA_PING  = 1
@@ -76,7 +75,7 @@ SECONDI_PAUSA_TRA_CICLI = 3
 
 
 # -------------------------------------------------------------------------------------------------------- #
-# Secondi di timeout del singolo ping.
+# Secondi di timeout del singolo ping. Accetta anche numeri in virgola mobile (es. 1.5)
 SECONDI_PING_TIMEOUT = 2
 
 
@@ -94,12 +93,13 @@ SECONDI_PING_TIMEOUT = 2
 # Nome del file CSV
 FILE_CSV = f"pingapersempre.csv"
 
-# crea la cartella statistiche se non esiste
-if not os.path.exists("statistiche"):
-    os.makedirs("statistiche")
+FILE_HTML_STATISTICHE = "statistiche.html"
 
-PATH_STATISTICHE = "statistiche"
-FILE_HTML_STATISTICHE = f"{PATH_STATISTICHE}\\index.html"
+PATH_STATISTICHE = "statitiche"
+# crea la cartella statistiche se non esiste
+if not os.path.exists(f"{PATH_STATISTICHE}"):
+    os.makedirs(f"{PATH_STATISTICHE}")
+
 
 # Righe che carica dal file CSV per il runtime
 MAX_LINES = int(SECONDI_ANALISI_RUNTIME / (SECONDI_PAUSA_TRA_PING + SECONDI_PAUSA_TRA_CICLI/len(ELENCO_IP_DA_MONITORARE)))

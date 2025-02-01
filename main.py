@@ -299,28 +299,28 @@ def genera_statistiche(open_browser=False, secondi_pausa_iniziale=SECONDI_AGGIOR
         f.write("</table>")
 
         f.write("<h1>Mappa di calore dei ping persi</h1>")
-        f.write("<img src='mappa_ping_persi.png'>")
+        f.write(f"<img src='{PATH_STATISTICHE}\\mappa_ping_persi.png'>")
 
         f.write("<h1>Statistiche per destinazione</h1>")
         f.write(stats_per_destinazione.to_html())
 
         f.write("<h1>Distribuzione durata ping per zona</h1>")
-        f.write("<img src='distribuzione_durata_ping_per_zona.png'>")
+        f.write(f"<img src='{PATH_STATISTICHE}\\distribuzione_durata_ping_per_zona.png'>")
 
         f.write("<h1>Evoluzione della durata ping nel tempo di tutte le destinazioni</h1>")
-        f.write("<img src='evoluzione_durata_ping_nel_tempo.png'>")
+        f.write(f"<img src='{PATH_STATISTICHE}\\evoluzione_durata_ping_nel_tempo.png'>")
         
         f.write("<h1>Media a 10 minuti dell'evoluzione della durata ping nel tempo per ogni destinazione</h1>")
-        f.write("<img src='evoluzione_durata_ping_nel_tempo_per_destinazione_media_10_min.png'>")
+        f.write(f"<img src='{PATH_STATISTICHE}\\evoluzione_durata_ping_nel_tempo_per_destinazione_media_10_min.png'>")
 
         f.write("<hr>") #linea di separazione
         for destination in destinations:
             f.write(f"<h1>Evoluzione della durata ping nel tempo per la destinazione {destination}</h1>")
-            f.write(f"<img src='evoluzione_durata_ping_nel_tempo_per_destinazione_{destination}.png'>")
+            f.write(f"<img src='{PATH_STATISTICHE}\\evoluzione_durata_ping_nel_tempo_per_destinazione_{destination}.png'>")
         f.write("<hr>") #linea di separazione
 
         f.write("<h1>Distribuzione dei tempi di ping</h1>")
-        f.write("<img src='distribuzione_tempi_di_ping.png'>")
+        f.write(f"<img src='{PATH_STATISTICHE}\\distribuzione_tempi_di_ping.png'>")
 
         f.write("<h1>Statistiche per data/ora e destinazione</h1>")
         f.write(stats_per_data_dest.to_html())
@@ -426,8 +426,10 @@ if __name__ == "__main__":
     ping_thread = threading.Thread(target=esegui_ping_infiniti, daemon=True)
     ping_thread.start()
 
-    # Avvia il thread per la creazione delle statistiche
-    stats_thread = threading.Thread(target=genera_statistiche, daemon=True)
-    stats_thread.start()
+
+    if SECONDI_AGGIORNAMENTO_HTML > 0 :
+        # Avvia il thread per la creazione delle statistiche
+        stats_thread = threading.Thread(target=genera_statistiche, daemon=True)
+        stats_thread.start()
 
     output_runtime()  # Funzione principale per l'aggiornamento dello schermo

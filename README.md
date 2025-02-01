@@ -1,7 +1,7 @@
 # pingapersempre
 
 ## Descrizione
-Monitora nel tempo il ping su un elenco di IP
+Monitora nel tempo il ping di un elenco di IP
 
 ## Requisiti
 Assicurati di avere installato Python nella macchina. Funziona su Windows ITA o EN, ma eventualmente con poche modifiche si può adattare ad altri sistemi operativi e/o lingue.

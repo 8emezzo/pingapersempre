@@ -53,6 +53,6 @@ Per domande o suggerimenti, contattami a simoneventurin@gmail.com
 ## Licenza
 ```
 Questo progetto è distribuito sotto la licenza MIAO LOL
-(Modello Indipendente di Autorizzazione Open - Licenza Operativa Libera)
+(Modello Indipendente Antani Open - Licenza Operativa Libera)
 ```
 

@@ -7,13 +7,15 @@ Monitora nel tempo il ping su un elenco di IP.
 Assicurati di avere installato Python nella macchina.
 
 ## Installazione
--> install.bat
+install.bat
 
 ## Utilizzo
--> pingapersempre.bat (Quando è in esecuzione registra dei ping in un file CSV)
+pingapersempre.bat
+Quando è in esecuzione registra dei ping in un file CSV
 
 ## Statistiche
--> statistiche.bat (Si può lanciare quando si vuole per analizzare l'intero contenuto o parte del file CSV)
+statistiche.bat
+Si può lanciare quando si vuole per analizzare l'intero contenuto o parte del file CSV
 
 ## Struttura del progetto
 

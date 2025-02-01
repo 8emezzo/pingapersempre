@@ -3,13 +3,15 @@
 ## Descrizione
 Monitora nel tempo il ping di un elenco di IP.
 ```
-Salva l'esito dei ping nel file pingapersempre.csv e aggiorna le statistiche nel file statistiche.html
+Salva l'esito dei ping nel file pingapersempre.csv
+e aggiorna le statistiche nel file statistiche.html
 ```
 
 ## Requisiti
 Assicurati di avere installato Python nella macchina.
 ```
-Funziona su Windows (lingua ITA o EN), ma con poche modifiche si può adattare in modo che supporti qualsiasi sistema operativo e/o lingua.
+Funziona su Windows (lingua ITA o EN)
+ma con poche modifiche si può adattare in modo che supporti qualsiasi sistema operativo e/o lingua.
 ```
 
 ## Installazione
@@ -40,8 +42,7 @@ pingapersempre/
 │-- pingapersempre.bat # Lancia il programma
 │-- statistiche.bat    # Forza l'aggiornamento del file HTML delle statistiche
 │-- README.md          # Questo file
-│-- statistiche/       # Sottocartella contenente i file delle statistiche
-    │-- index.html      # File HTML con le statistiche (generato dal programma)
+│-- statistiche.html   # File HTML con le statistiche
 ```
 
 ## Contatti

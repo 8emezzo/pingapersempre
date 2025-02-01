@@ -38,10 +38,10 @@ pingapersempre/
 │-- main.py            # file py principale
 │-- statistiche.py     # file py statistiche
 │-- requirements.txt   # elenco librerie Python
-│-- install.bat        # installa le librerie Python contenute in requirements.txt
-│-- pingapersempre.bat # lancia il programma
-│-- statistiche.bat    # forza l'aggiornamento del file HTML delle statistiche
 │-- pingapersempre.csv # file CSV con l'archivio dell'esito dei ping (creato alla prima esecuzione)
+│-- pingapersempre.bat # lancia il programma
+│-- install.bat        # installa le librerie Python contenute in requirements.txt
+│-- statistiche.bat    # forza l'aggiornamento del file HTML delle statistiche
 │-- statistiche.html   # file HTML con le statistiche (creato alla prima esecuzione)
 │-- README.md          # questo file
 ```

@@ -33,6 +33,10 @@ def genera_statistiche(open_browser=False, secondi_pausa_iniziale=SECONDI_AGGIOR
     # Pausa iniziale
     time.sleep(secondi_pausa_iniziale)
 
+    # crea la cartella statistiche se non esiste
+    if not os.path.exists(f"{PATH_STATISTICHE}"):
+        os.makedirs(f"{PATH_STATISTICHE}")
+
     # Carica il CSV in un DataFrame e imposta Timestamp come indice
     df = pd.read_csv(FILE_CSV, parse_dates=["Timestamp"], index_col="Timestamp")
 

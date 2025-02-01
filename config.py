@@ -1,6 +1,3 @@
-import os
-
-
 
 # ----------------------------------------------------------------------------------------------------- #
 # Ineserisci i dati dei ping che vuoi monitorare:
@@ -86,18 +83,11 @@ SECONDI_PING_TIMEOUT = 2
 # Cambia i parametri di seguito solo se sai cosa stai facendo
 # -------------------------------------------------------------------------------------------------------------------- #
 
-#PC_NAME = os.environ['COMPUTERNAME']
-#CSV_FILE = f"pingapersempre_{PC_NAME}.csv"
-
-# Nome del file CSV
-FILE_CSV = f"pingapersempre.csv"
-
+# Nomi file/path
+FILE_CSV              = "pingapersempre.csv"
 FILE_HTML_STATISTICHE = "statistiche.html"
-
-PATH_STATISTICHE = "statitiche"
-# crea la cartella statistiche se non esiste
-if not os.path.exists(f"{PATH_STATISTICHE}"):
-    os.makedirs(f"{PATH_STATISTICHE}")
+PATH_STATISTICHE      = "statitiche"
 
 # Righe che carica dal file CSV per il runtime
+# calcolato su stima in base ai secondi di pausa tra i ping e i cicli
 MAX_LINES = int(SECONDI_DA_ANALIZZARE_NEL_CSV_PER_IL_RUNTIME / (SECONDI_PAUSA_TRA_PING + SECONDI_PAUSA_TRA_CICLI/len(ELENCO_IP_DA_MONITORARE)))

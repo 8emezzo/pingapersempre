@@ -147,6 +147,14 @@ df_ping_falliti_raggruppati = df_ping_falliti.groupby(['Zona_Destinazione', 'Day
 
 if df_ping_falliti_raggruppati.empty:
     print("Non stampo la mappa di calore dei ping persi perché non c'è nessun ping perso")
+
+    # se non ci sono ping persi, stampo un png vuoto
+    plt.figure(figsize=(12, 6))
+    plt.axis('off')
+    plt.tight_layout()
+    plt.savefig(f"{PATH_STATISTICHE}\\mappa_ping_persi.png")
+
+    
 else:
 
     heat_data = df_ping_falliti_raggruppati.pivot(index='Zona_Destinazione', columns='Day_Hour', values='count').fillna(0)

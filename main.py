@@ -356,16 +356,21 @@ def esegui_ping_infiniti():
 def output_runtime():
     # Aggiorna la schermata con i risultati in tempo reale
 
+    # Righe che carica dal file CSV per il runtime
+    # calcolato su stima in base ai secondi di pausa tra i ping e i cicli
+    max_lines = int(SECONDI_DA_ANALIZZARE_NEL_CSV_PER_IL_RUNTIME / (SECONDI_PAUSA_TRA_PING + SECONDI_PAUSA_TRA_CICLI/len(ELENCO_IP_DA_MONITORARE)))
+
+
     while True:
         os.system('cls')
 
-        # Legge solo le ultime MAX_LINES
+        # Legge solo le ultime max_lines
         with open(FILE_CSV, "r", encoding="utf-8") as f:
             header = f.readline()  # Legge la prima riga (intestazione)
-            if MAX_LINES == 0:
+            if max_lines == 0:
                 last_lines = f.readlines()
             else:
-                last_lines = deque(f, maxlen=MAX_LINES)  # Mantiene solo le ultime MAX_LINES righe in memoria
+                last_lines = deque(f, maxlen=max_lines)  # Mantiene solo le ultime max_lines righe in memoria
 
         df = pd.read_csv(io.StringIO(header + "".join(last_lines)))
 

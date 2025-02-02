@@ -24,10 +24,8 @@ lock = threading.Lock()
 
 
 
-def genera_statistiche(open_browser=False, secondi_pausa_iniziale=SECONDI_AGGIORNAMENTO_FILE_HTML_STATISTICHE):
+def genera_statistiche(open_browser=False):
 
-    # Pausa iniziale
-    time.sleep(secondi_pausa_iniziale)
 
     # crea la cartella statistiche se non esiste
     if not os.path.exists(f"{PATH_STATISTICHE}"):
@@ -317,7 +315,15 @@ def genera_statistiche(open_browser=False, secondi_pausa_iniziale=SECONDI_AGGIOR
 
 
 
-def file_CSV():
+def genera_statistiche_loop():
+    # Chiama genera_statistiche in un loop continuo
+    while True:
+        time.sleep(SECONDI_AGGIORNAMENTO_FILE_HTML_STATISTICHE)  # Attendi prima di rieseguire
+        genera_statistiche()
+
+
+
+def apri_file_CSV():
     # Creazione intestazione CSV se il file non esiste
     if not os.path.exists(FILE_CSV):
         with open(FILE_CSV, mode='w', newline='') as file:
@@ -327,7 +333,7 @@ def file_CSV():
 
 
 
-def esegui_ping_infiniti():
+def esegui_ping_loop():
     # Esegue il ping per ogni IP e registra i risultati in un CSV
 
     while True:
@@ -346,6 +352,7 @@ def esegui_ping_infiniti():
                 ttl_match    = re.search(r'TTL=(\d+)', ping_output.stdout)
                 durata       = int(durata_match.group(1)) if durata_match else SECONDI_PING_TIMEOUT * 1000
                 ttl          = int(ttl_match.group(1)) if ttl_match else -1
+                # prende il lock per scrivere sul file usato da altri thread
                 with lock:
                     writer.writerow([esito, durata, destinazione, ip, zona, ttl, timestamp])
                 time.sleep(SECONDI_PAUSA_TRA_PING)
@@ -353,7 +360,7 @@ def esegui_ping_infiniti():
 
 
 
-def output_runtime():
+def output_runtime_loop(secondi_refresh=5):
     # Aggiorna la schermata con i risultati in tempo reale
 
     # Righe che carica dal file CSV per il runtime
@@ -398,21 +405,23 @@ def output_runtime():
         print("------------------------------------------------------------------------------------------------------")
         print(agg_df.to_string(index=False))
         print("------------------------------------------------------------------------------------------------------")
-        time.sleep(5)
+        time.sleep(secondi_refresh)
+
 
 
 
 if __name__ == "__main__":
 
-    file_CSV()  # Crea il file CSV se non esiste
+    # Apre o crea il file CSV se non esiste
+    apri_file_CSV()  
 
     # Avvia il thread per i ping
-    ping_thread = threading.Thread(target=esegui_ping_infiniti, daemon=True)
+    ping_thread = threading.Thread(target=esegui_ping_loop, daemon=True)
     ping_thread.start()
 
     if SECONDI_AGGIORNAMENTO_FILE_HTML_STATISTICHE > 0 :
-        # Avvia il thread per la creazione delle statistiche
-        stats_thread = threading.Thread(target=genera_statistiche, daemon=True)
+        # Avvia il thread per la creazione delle statistiche continua
+        stats_thread = threading.Thread(target=genera_statistiche_loop, daemon=True)
         stats_thread.start()
 
-    output_runtime()  # Funzione principale per l'aggiornamento dello schermo
+    output_runtime_loop(secondi_refresh=5)  # Funzione principale per l'aggiornamento dello schermo

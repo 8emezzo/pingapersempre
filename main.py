@@ -15,7 +15,10 @@ from datetime import datetime
 
 import pandas as pd
 
+import matplotlib
 import matplotlib.pyplot as plt
+matplotlib.use('Agg')  # Usa il backend non interattivo
+
 import seaborn as sns
 import pandas as pd
 

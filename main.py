@@ -276,7 +276,11 @@ def genera_statistiche(open_browser=False):
         f.write("<style>table {border-collapse: collapse;} th, td {border: 1px solid black; padding: 5px;}</style>")
 
         f.write("<html><body>")
-        f.write(f"<h1>Statistiche dei ping eseguiti nelle ultime {ORE_DA_ANALIZZARE_NEL_CSV_PER_LE_STATISTICHE} ore, salvate nel file CSV, dal {min_time_df} fino al {max_time_df}</h1>")
+        if ORE_DA_ANALIZZARE_NEL_CSV_PER_LE_STATISTICHE > 0:
+            f.write(f"<h1>Statistiche dei ping eseguiti nelle ultime {ORE_DA_ANALIZZARE_NEL_CSV_PER_LE_STATISTICHE} ore, salvate nel file CSV, dal {min_time_df} fino al {max_time_df}</h1>")
+        else:
+            f.write(f"<h1>Statistiche dei ping eseguiti, salvate nel file CSV, dal {min_time_df} fino al {max_time_df}</h1>")
+        
         f.write("<table>")
         for key, value in report_statistiche_generali.items():
             f.write(f"<tr><td>{key}</td><td>{value}</td></tr>")

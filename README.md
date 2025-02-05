@@ -30,8 +30,6 @@ Eventualmente mofificare i parametri della configurazione di default.
 pingapersempre.bat
 ```
 
-![pingapersempre.batimages/runtime.png](https://github.com/8emezzo/pingapersempre/blob/60d44296a23ff983f162da835dc8b2e7201c400a/images/runtime.png)
-
 ![pingapersempre.batimages/runtime.png](images/runtime.png)
 
 

@@ -32,6 +32,11 @@ pingapersempre.bat
 Schermata di runtime:
 ![Schermata di runtime](images/runtime.png)
 
+Output statistiche:
+![statistiche_1.png](images/statistiche_1.png)
+![statistiche_2.png](images/statistiche_2.png)
+![statistiche_3.png](images/statistiche_3.png)
+
 
 
 ## Struttura del programma

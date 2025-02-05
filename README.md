@@ -29,7 +29,7 @@ Eventualmente mofificare i parametri della configurazione di default.
 ```
 pingapersempre.bat
 ```
-(images/runtime.png)
+[eee](images/runtime.png)
 
 ![pingapersempre.batimages/runtime.png](images/runtime.png)
 

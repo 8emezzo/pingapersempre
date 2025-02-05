@@ -3,7 +3,8 @@
 ## Descrizione
 Monitora nel tempo i ping verso un elenco di IP
 ```
-Salva l'esito dei ping in un file CSV e ciclicamente produce delle statistiche in un file HTML
+Salva l'esito dei ping in un file CSV e ciclicamente produce delle statistiche in un file HTML.
+Durante il runtime mosta in consolle una sintesi delle statistiche.
 ```
 
 ## Requisiti

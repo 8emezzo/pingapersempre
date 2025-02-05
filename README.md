@@ -57,7 +57,7 @@ pingapersempre/
 
 ## Contatti
 ```
-Per domande o suggerimenti, ma soprattutto schei, contattami a simoneventurin [chiocciola] gmail.com
+Per domande o suggerimenti, contattami a: simoneventurin at gmail dot com
 ```
 
 ## Licenza

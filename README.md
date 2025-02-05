@@ -27,7 +27,7 @@ Se necessario, aggiornare i parametri di configurazione predefiniti.
 
 ## Utilizzo
 ```
-Avviare il programma eseguendo pingapersempre.bat
+pingapersempre.bat
 ```
 Schermata di runtime:
 ![Schermata di runtime](images/runtime.png)

@@ -29,10 +29,10 @@ Se necessario, aggiornare i parametri di configurazione predefiniti.
 ```
 pingapersempre.bat
 ```
-Schermata di runtime:
+Output schermata di runtime
 ![Schermata di runtime](images/runtime.png)
 
-Esempi di output di statistiche.html:
+Output del file statistiche.html
 ![statistiche_1.png](images/statistiche_1.png)
 ![statistiche_2.png](images/statistiche_2.png)
 ![statistiche_3.png](images/statistiche_3.png)

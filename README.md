@@ -1,17 +1,17 @@
 # pingapersempre
 
 ## Descrizione
-Monitora nel tempo i ping verso un elenco di IP
+Programma per monitorare nel tempo i ping verso un elenco di indirizzi IP.
 ```
-Salva l'esito dei ping in un file CSV e ciclicamente produce delle statistiche in un file HTML.
-Durante il runtime mosta in consolle una sintesi delle statistiche.
+Salva i risultati dei ping in un file CSV e periodicamente genera statistiche in un file HTML.
+Durante l'esecuzione fornisce una sintesi delle statistiche direttamente nella console..
 ```
 
 ## Requisiti
-Assicurati di avere installato Python nella macchina
+È necessario avere Python installato sulla macchina.
 ```
-Funziona su Windows, lingua ITA o EN.
-Con poche modifiche si può adattare in modo che supporti qualsiasi sistema operativo e/o lingua.
+Il programma è compatibile con Windows in lingua italiana o inglese.
+Con poche modifiche, può essere adattato per supportare altri sistemi operativi e lingue.
 ```
 
 ## Installazione

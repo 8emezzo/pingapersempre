@@ -20,12 +20,12 @@ ELENCO_IP_DA_MONITORARE = [
 
 # -------------------------------------------------------------------------------------------------------------------- #
 # Secondi di pausa tra un ping e l'altro dell'ELENCO_IP_DA_MONITORARE. Accetta anche numeri con virgola (es. 0.5)
-SECONDI_PAUSA_TRA_PING  = 2.5
+SECONDI_PAUSA_TRA_PING  = 5
 
 # Secondi di pausa tra un ciclo di ping dell'ELENCO_IP_DA_MONITORARE. Accetta anche numeri con virgola (es. 1.5)
-SECONDI_PAUSA_TRA_CICLI = 5
+SECONDI_PAUSA_TRA_CICLI = 20
 
-# Non mettere entrambi questi due parametri a 0, altrimenti mi sa che va tutto a puttane
+# Non mettere valori troppo bassi, altrimenti i router potrebbero non rispondere ai ping.
 # Puoi mettere anche numeri in virgola mobile (es. 0.5)
 
 
@@ -33,22 +33,21 @@ SECONDI_PAUSA_TRA_CICLI = 5
 # -------------------------------------------------------------------------------------------------------------------- #
 # Inserisci le ore di storico del file CSV che vuoi analizzare nel file statistiche.html
 # Se metti 0 considera tutto il file CSV.
-ORE_DA_ANALIZZARE_NEL_CSV_PER_LE_STATISTICHE = 10
+ORE_DA_ANALIZZARE_NEL_CSV_PER_LE_STATISTICHE = 8
 
 
 
 # -------------------------------------------------------------------------------------------------------------------- #
 # Inserisci i secondi di storico del file CSV che vuoi analizzare durante l'uotput di runtime di pingapersempre.bat
 # Se metti 0 considera tutto il file CSV.
-SECONDI_DA_ANALIZZARE_NEL_CSV_PER_IL_RUNTIME = 600 # 10 minuti
+SECONDI_DA_ANALIZZARE_NEL_CSV_PER_IL_RUNTIME = 60*60*2 # 2 ore
 
 
 
 # -------------------------------------------------------------------------------------------------------------------- #
 # Inserisci i secondi ogni quanto vuoi aggiornare il file statistiche.html
-# E' consigliato non mettere meno di 60 secondi, dato che la produzione del file HTML potrebbe appesantire la macchina
 # Se metti 0 non produce mai il file. Eventualmente lo puoi produrre a parte con il comando statitiche.bat
-SECONDI_AGGIORNAMENTO_FILE_HTML_STATISTICHE = 900 # 15 minuti
+SECONDI_AGGIORNAMENTO_FILE_HTML_STATISTICHE = 60*30 # 30 minuti
 
 
 

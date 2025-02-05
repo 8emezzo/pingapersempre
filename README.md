@@ -30,7 +30,7 @@ Eventualmente mofificare i parametri della configurazione di default.
 pingapersempre.bat
 ```
 
-![Schermata dell'app] (images/runtime.png)
+([pingapersempre.batimages/runtime.png](https://github.com/8emezzo/pingapersempre/blob/affa19d0f4e873aa1b198afd9597e370613a8c99/images/runtime.png))
 
 
 ## Struttura del programma

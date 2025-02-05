@@ -21,13 +21,13 @@ install.bat
 
 ## Configurazione
 ```
-Editare il file config.py ed inserire gli IP da monitorare.
-Eventualmente mofificare i parametri della configurazione di default.
+Modificare il file config.py per inserire gli indirizzi IP da monitorare.
+Se necessario, aggiornare i parametri di configurazione predefiniti.
 ```
 
 ## Utilizzo
 ```
-pingapersempre.bat
+Avviare il programma eseguendo pingapersempre.bat
 ```
 Schermata di runtime:
 ![Schermata di runtime](images/runtime.png)

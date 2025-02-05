@@ -32,7 +32,7 @@ pingapersempre.bat
 Schermata di runtime:
 ![Schermata di runtime](images/runtime.png)
 
-statistiche.html:
+Esempi di output di statistiche.html:
 ![statistiche_1.png](images/statistiche_1.png)
 ![statistiche_2.png](images/statistiche_2.png)
 ![statistiche_3.png](images/statistiche_3.png)
